@@ -1,0 +1,77 @@
+/*
+
+GENERAL MIXINS: This project uses Bourbon so you can use any of the Bourbon mixins
+http://bourbon.io/
+
+- utility
+- setting breakpoints
+
+*/
+
+/*********************
+BREAKPOINTS
+*********************/
+
+ @mixin breakpoint($point) {
+   @if $point == bigscreen {
+     @media (min-width: 80em) { @content ; }
+  }
+   @else if $point == desktop {
+     @media (min-width: 70em) { @content ; }
+  }
+   @else if $point == laptop {
+     @media (min-width: 64em) { @content ; }
+  }
+    @else if $point == tablet {
+     @media (min-width: 50em) { @content ; }
+  }
+   @else if $point == mobile {
+     @media (min-width: 37.5em)  { @content ; }
+  }
+}
+
+
+
+/* ::: HIDING CONTENT ::::::::::::::::::::::::::::::::::::::::: */
+
+	// http://shoptalkshow.com/episodes/058-with-derek-featherstone/  (skip to 32 minutes)
+	@mixin hide() {
+		display: none;
+	}
+	// unhide accessible content
+	@mixin unhide() {
+		position: static;
+	}
+
+
+/* ::: PLACEHOLDER MIXIN ::::::::::: */
+$placeholders: '-webkit-input-placeholder',
+               '-moz-placeholder',
+               '-ms-input-placeholder';
+
+@mixin placeholder {
+  @each $placeholder in $placeholders {
+    @if $placeholder == "-webkit-input-placeholder" {
+      &::#{$placeholder} {
+        @content;
+      }
+    }
+    @else if $placeholder == "-moz-placeholder" {
+      // FF 18-
+      &:#{$placeholder} {
+        @content;
+      }
+
+      // FF 19+
+      &::#{$placeholder} {
+        @content;
+      }
+    }
+    @else {
+      &:#{$placeholder} {
+        @content;
+      }
+    }
+  }
+}
+

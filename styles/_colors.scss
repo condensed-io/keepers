@@ -1,0 +1,191 @@
+//::: COLOR REFERENCE :::::::::::::::::::::::::::::
+
+// A few default color values that all sites should have
+$white: #FFF;
+$off-white: #EFEFEF;
+
+// Define your color values here, these are placeholders
+$peach: #F9B89C;
+$blue: #2B01C7;
+$blue-50: rgba(43,1,199,.50);
+$white-20: rgba(255,255,255,.2);
+$white-30: rgba(255,255,255,.3);
+$white-90: rgba(255,255,255,.9);
+$white-70: rgba(255,255,255,.7);
+$blue-70: rgba(43,1,199,.70);
+
+$lighter-grey: #EEE;
+$light-grey: #DDD;
+$medium-grey: #999;
+
+
+//::: ELEMENTS ::::::::::::::::::::::::::::::::::::
+
+	// set the colors on the page
+	html {
+        //don't add background colors or they will go over the bubbles bkg image
+		color: $blue;
+	}
+	body {
+		color: $blue;
+	}
+	// Customize the look of selected text -- feel free to change the colors
+	::-moz-selection { // Mozilla
+       background-color: $blue;
+       color: $white;
+	}
+	::selection { // Safari
+       background-color: $blue;
+       color: $white;
+	}
+	.indicator a:link, .indicator a:visited {
+        color: $white;
+        background-color: $peach;
+    }
+	.indicator a:hover, .indicator a:focus, .indicator a:active {
+        color: $white;
+        background-color: $blue;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+	.data-table {
+		th {
+			background-color: $blue;
+			color: $white;
+		}
+		td {
+			border-bottom: 1px dotted $peach;
+		}
+	}
+
+	// Links
+	a:link, a:visited {
+        color: $blue;
+    }
+	a:hover, a:active, a:focus {
+        color: $blue;
+    }
+
+	// Show-Hide
+	.make-link {
+		color: $peach;
+	}
+	.make-link:hover,
+	.make-link:focus,
+	.make-link:active {
+		color: $blue;
+	}
+	
+	.indicator a {
+		background-color: $peach;
+	}
+
+    footer {
+        color: $blue;
+    }
+
+    //default button colors
+    input[type='submit'], a.button {
+        color: $blue;
+        border-color: $blue;
+        
+//no hover state for now//////        &:hover, &:active {
+//no hover state for now//////            background: $off-white;
+//no hover state for now//////            color: $blue;
+//no hover state for now//////        }
+        
+    }
+
+
+
+/* ::: COLORED SECTIONS ::::::::::::::::::::::::::::::::: */
+// Colors are added based on background
+
+	// BLUE AREA
+	.blue-area { // need to tweak these colors, they're all messy
+		
+		background-color: $blue;
+		color: $white;
+        
+        .icon svg {
+            &:hover, &:active, &:focus {
+                fill: $blue;
+            }
+        }
+		a {
+			&:link, &:visited {
+				color: $peach;
+			}
+			&:hover, &:focus, &:active {
+				color: $white;
+			}
+		}
+        .validation_message {
+			color: $peach;
+			border-top: .2em solid $peach;
+		}
+		.validation_error {
+			color: $white;
+			background-color: $peach;
+		}
+
+        input[type='text'], input[type='email']  {
+            color: $blue;
+            background: $white;
+			&:hover, &:active {
+			}
+			&:focus {
+				color: $blue;
+			}
+		}
+        .input[type='submit'], a.button {
+            background: $peach;
+            color: $blue;
+            border-color: $white;
+            &:hover, &:active {
+                background: $white;
+                color: $blue;
+            }
+        }
+        .input[type='submit'].white, a.button.white {
+            background: white;
+            color: blue;
+            &:hover, &:active {
+                background: $peach;
+                color: $blue;
+            }
+        }
+	}
+    .validation_error {
+        background: $peach;
+        color: $white;
+    }
+    .validation_message {
+        border-top: 2px solid $peach;
+        color: $peach;
+    }
+    // Tags
+
+    .tags {
+        color: $medium-grey;
+        a {
+            background: $light-grey;
+            &:link, &:visited {
+                text-decoration: none;
+                color: $medium-grey;
+            }
+            &:hover, &:active, &:focus {
+                background: $medium-grey;
+                color: $white;
+            }
+        }
+    }
+    
+
+
+
+/* ::: CLASSES ::::::::::::::::::::::::::::::::: */
+
+// example of how to make classes you can use inline in your html
+	.peach { color: $peach; }

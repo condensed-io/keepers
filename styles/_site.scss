@@ -1,0 +1,190 @@
+/*
+
+THIS SHEET IS FOR SITEWIDE STYLES RELATED TO:
+
+- Layout
+- Applying your color definitions from colors.scss
+- Applying your typography definitions from type.scss
+
+*/
+
+
+
+/* ::: GENERAL ::::::::::::::::::::::::::::::::: */
+
+    html {
+        line-height: 2.5;
+        font-weight: 300;
+        background-color: $off-white;
+        text-align: center;
+    }
+    // Bourbon Neat Grid Settings -- NOT SURE IF THESE ARE NECESSARY
+	.row {
+		padding: 0 10%; // default padding to keep the content from touching the edge of the site (this may cause issues, keep an eye on it)
+	}
+    // Social icons
+    a.icon {
+        display: inline;
+        padding: .4em;
+        text-decoration: none !important;
+    }
+    .toggle {
+        padding: 1em;
+        background: $white;
+        margin: .5em 0;
+    }
+    .data {
+        padding: 1em;
+    }
+
+
+/* ::: SITE HEADER ::::::::::::::::::::::::::::::::: */
+
+    .site-header {
+        a {
+            display: inline-block;
+            padding: 2em .5em;
+            //border: 1px solid red;
+            @include breakpoint(desktop) {
+                padding: 3em .3em;
+            }
+        }
+        //KEEPERS LOGO
+        .logo-keepers {
+            svg {
+                vertical-align: middle;
+                width: 80px;
+                height: 40px;
+                @include breakpoint(desktop) {
+                    width: 100px;
+                }
+            }
+        }
+        // Accessible header - hidden
+        h1, h2 { 
+			@include hide(); 
+		}
+        .social-links {
+            position: absolute;
+            top: 0;
+            right: 1em;
+            .icon svg { // social icons
+                vertical-align: middle;
+                width: 2em;
+                height: 2em;
+            }
+        }
+	}  // END: Site Header
+    
+    // tags
+    .tags {
+        margin-bottom: 5em;
+        a {
+            padding: .3em 1.2em;
+            white-space: nowrap;
+            vertical-align: middle;
+            margin: .2em;
+            border-radius: .3em;
+            @include small-type();   
+        }
+    }
+
+    // avatars
+    .avatar {
+        border-radius: 50%;
+    }
+
+    // meta info
+    .meta {
+        margin-bottom: 5em;
+    }
+    .meta img {
+        vertical-align: middle;
+    }
+
+
+/* ::: CONTENT ::::::::::::::::::::::::::::::::: */
+    
+    .post {
+        padding: 0 1em;
+        @include breakpoint(tablet) {
+             padding: 0 2em;
+        }
+        @include breakpoint(desktop) {
+             padding: 0 3em;
+        }
+    }
+
+/* ::: FOOTER ::::::::::::::::::::::::::::::::: */
+
+	.footer {
+        .menu-footer-nav-container {
+            margin: 0 10%;
+        }
+        #menu-footer-nav {
+            @include poppins();
+            margin-top: 5em;
+            display: flex;
+            list-style-type: none;
+            li {
+                flex: auto;
+            }
+        }
+        .credit, .copyright {
+            color: $medium-grey;
+            text-align: right;
+            margin-right: 3em;
+        }
+        .credit {
+            margin-top: 15em;
+            @include sans();
+            font-weight: 100;
+            // peachy credit
+            a:link, a:visited {
+                color: $peach;
+            }
+        }
+	}
+
+
+
+/* ::: FANCY PLAY BUTTON TO IMPRESS PEOPLE ::::::::::::::::::::::::::::::::: */
+    
+    // Spin animation
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .stroke-dotted {
+        stroke-width: 4px;
+        opacity: .7;
+        stroke-dasharray: 4,5;
+        transform-origin: 50% 50%;
+        animation: spin 4s infinite linear;
+        transition: opacity 1s ease, 
+                      stroke-width 1s ease;
+    }
+    .stroke-solid {
+        opacity: 0;
+        stroke-dashoffset: 0;
+        stroke-dashArray: 300;
+        stroke-width: 4px;
+        transition: stroke-dashoffset 1s ease, 
+    //    opacity 1s ease;
+    }
+    .vid-icon {
+      transform-origin: 50% 50%;
+      transition: transform 200ms ease-out;
+    }
+    // Hover
+    #play:hover {
+      .stroke-dotted {
+        opacity: 0;
+      }
+      .stroke-solid {
+        opacity: 0;
+        stroke-dashoffset: 300;
+      }
+      .vid-icon {
+        transform: scale(1.05);
+      }
+    }
